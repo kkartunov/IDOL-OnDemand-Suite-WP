@@ -1,0 +1,59 @@
+<div id="ODSWP_Sentiment">
+    <h4 class="ODSWP_collapsible_title"
+        ng-click="Sntm.show=!Sntm.show">
+            <i class="fa fa-smile-o"></i>
+            <?php _e('Sentiment', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+            <i class="fa" ng-class="{'fa-caret-down': !Sntm.show, 'fa-caret-up': Sntm.show}"></i>
+        </h4>
+    <div class="ODSWP_collapsible animate-shiny"
+         ng-show="Sntm.show">
+        <label for="Sntm.Track">
+            <input type="checkbox" id="Sntm.Track" name="ODSWP_SentimentTrack" <?php echo $SentimentMetaKey? 'checked':''?>/>
+            <?php _e("Track this content's sentiment", 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+        </label>
+        <p class="howto">
+            <?php _e('Just provide input data source to get its sentiment.', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+            <a href="" ng-click="modal_pop('help.sentiment.html')"><i class="fa fa-question-circle"></i></a>
+        </p>
+        <tabs publish-to="Sntm" name="src">
+            <pane title="<?php _e('Text', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <textarea ng-model="Sntm.Text" placeholder="<?php _e('Your text', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>"></textarea>
+                <label for="Sntm.Editor">
+                    <input type="checkbox" id="Sntm.Editor" ng-model="Sntm.fromEditor"/>
+                    <?php _e('Analyze the editor content', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+                </label>
+            </pane>
+            <pane title="<?php _e('Url', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="text" ng-model="Sntm.Url" placeholder="<?php _e('Accessible HTTP URL', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+            </pane>
+<!-- Comming soon
+            <pane title="<?php _e('File', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="file" ng-model="Sntm.File" ng-file-select="Sntm.onFileSelect($files)">
+            </pane>
+-->
+            <pane title="<?php _e('Reference', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="text" ng-model="Sntm.Reference"
+                       placeholder="<?php _e('An IDOL OnDemand reference', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+            </pane>
+        </tabs>
+        <p>
+            <select ng-model="Sntm.language" ng-init="Sntm.language='eng'">
+                <option value="eng" selected="selected"><?php _e('English', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></option>
+                <option value="fre"><?php _e('French', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></option>
+                <option value="spa"><?php _e('Spanish', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></option>
+                <option value="ger"><?php _e('German', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></option>
+                <option value="ita"><?php _e('Italian', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></option>
+                <option value="chi"><?php _e('Chinese', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></option>
+            </select>
+        </p>
+    <p><a href="" class="button button-primary"
+          ng-click='SntmGo()'
+          ng-class="{'disabled':Sntm.ctask}">
+        <?php _e('Go', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+        <i class="fa fa-spinner fa-spin" ng-if='Sntm.ctask'></i>
+        </a>
+    </p>
+    </div>
+    <?php include 'help.sentiment.html'; ?>
+    <?php include 'ok.sentiment.html'; ?>
+</div>

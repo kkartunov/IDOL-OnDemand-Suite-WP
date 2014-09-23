@@ -1,0 +1,19 @@
+<script type="text/ng-template" id="uindex.delete.html">
+
+<h3>
+    <i class="fa fa-trash-o fa-2x"></i> <?php _e('Delete text index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?> `{{modal.data.uindex}}`?
+</h3>
+<div ng-hide="modal.data.deleted || modal.data.errored">
+    <p>`{{modal.data.uindex}}` <?php _e('was marked for delete. Are you sure you want to delete this text index?', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></p>
+    <p class="ODSWP_Error">
+        <i class="fa fa-warning fa-2x"></i> <?php _e('All of the index data will be lost!', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></p>
+    <a href="#" class="button button-primary"
+       ng-click="uindex_delete()"
+       ng-class="{'disabled': modal.data.dropping}">
+        <?php _e('Delete', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>  <i class="fa fa-spinner fa-spin" ng-if="modal.data.dropping"></i>
+    </a>
+</div>
+<p ng-class="{'ODSWP_Error':modal.data.errored}" ng-show="modal.data.deleted || modal.data.errored">
+    <i class="fa fa-2x"
+      ng-class="{'fa-thumbs-up': modal.data.deleted, 'fa-warning': modal.data.errored}"></i> {{modal.data.deleted || modal.data.errored}}</p>
+</script>

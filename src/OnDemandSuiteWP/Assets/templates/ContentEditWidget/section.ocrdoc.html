@@ -1,0 +1,46 @@
+<div id="ODSWP_OCRDoc">
+    <h4 class="ODSWP_collapsible_title"
+        ng-click="OCRDoc.show=!OCRDoc.show">
+            <i class="fa fa-file-image-o"></i> <i class="fa fa-caret-right"></i> <i class="fa fa-file-text-o"></i>
+            <?php _e('OCR Image', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+            <i class="fa" ng-class="{'fa-caret-down': !OCRDoc.show, 'fa-caret-up': OCRDoc.show}"></i>
+        </h4>
+    <div class="ODSWP_collapsible animate-shiny"
+         ng-show="OCRDoc.show">
+        <p class="howto">
+            <?php _e('Just provide input data source to OCR it and get text extracted from an image.', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+            <a href="" ng-click="modal_pop('help.ocrimage.html')"><i class="fa fa-question-circle"></i></a>
+        </p>
+        <tabs publish-to="OCRDoc" name="src">
+            <pane title="<?php _e('Url', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="text" ng-model="OCRDoc.Url" placeholder="<?php _e('Accessible HTTP URL', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+            </pane>
+<!-- Comming soon
+            <pane title="<?php _e('File', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="file" ng-model="OCRDoc.File" ng-file-select="OCRDoc.onFileSelect($files)">
+            </pane>
+-->
+            <pane title="<?php _e('Reference', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="text" ng-model="OCRDoc.Reference"
+                       placeholder="<?php _e('An IDOL OnDemand reference', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+            </pane>
+        </tabs>
+        <p>
+            <select ng-model="OCRDoc.mode" ng-init="OCRDoc.mode='document_photo'">
+                <option value="document_photo" selected="selected">document_photo</option>
+                <option value="document_scan">document_scan</option>
+                <option value="scene_photo">scene_photo</option>
+                <option value="subtitle">subtitle</option>
+            </select>
+        </p>
+    <p><a href="" class="button button-primary"
+          ng-click='OCR_image()'
+          ng-class="{'disabled':OCRDoc.ctask}">
+        <?php _e('Go', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+        <i class="fa fa-spinner fa-spin" ng-if='OCRDoc.ctask'></i>
+        </a>
+    </p>
+    </div>
+    <?php include 'help.ocrimage.html'; ?>
+    <?php include 'ok.ocrimage.html'; ?>
+</div>

@@ -1,0 +1,12 @@
+<script type="text/ng-template" id="uindex.status.html">
+<h3>
+    <i class="fa fa-info-circle fa-2x"></i> `{{modal.data['uindex']}}` <?php _e('Status', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></h3>
+<p class="ODSWP_value_label_wrap">
+    <?php _e('Total documents', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>: <span class="ODSWP_num-label">{{modal.data['total_documents']}}</span></i></p>
+<p class="ODSWP_value_label_wrap">
+    <?php _e('Index size', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>: <span class="ODSWP_num-label">{{modal.data['total_index_size']}}</span></i> <?php _e('bytes', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>
+</p>
+<p class="ODSWP_value_label_wrap">
+    <?php _e('24hr updates', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>: <span class="ODSWP_num-label">{{modal.data['24hr_index_updates']}}</span></i>
+</p>
+</script>

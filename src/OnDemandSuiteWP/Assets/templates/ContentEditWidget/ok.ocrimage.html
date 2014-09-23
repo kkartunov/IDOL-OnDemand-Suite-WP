@@ -1,0 +1,25 @@
+<script type="text/ng-template" id="ok.ocrimage.html">
+<h3>
+    <i class="fa fa-file-image-o fa-2x"></i> <i class="fa fa-caret-right fa-2x"></i> <i class="fa fa-file-text-o fa-2x"></i>
+    <span ng-if="OCRDoc.res"><?php _e('Done', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></span>
+    <span ng-if="OCRDoc.error"><?php _e('Error', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></span>
+</h3>
+<h4 ng-if="OCRDoc.res && OCRDoc.res.text_block.length">
+    <?php _e('Result', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>:
+</h4>
+<p ng-if="OCRDoc.res.text_block.length==0"><?php _e('Sorry, nothing was extracted.', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></p>
+<div class="OCRImageRes" ng-repeat="block in OCRDoc.res.text_block">
+    <p class="ODSWP_value_label_wrap">@width: <span class="ODSWP_num-label">{{block.width}}</span></p>
+    <p class="ODSWP_value_label_wrap">@height: <span class="ODSWP_num-label">{{block.height}}</span></p>
+    <p class="ODSWP_value_label_wrap">@top: <span class="ODSWP_num-label">{{block.top}}</span></p>
+    <p class="ODSWP_value_label_wrap">@left: <span class="ODSWP_num-label">{{block.left}}</span></p>
+    <p class="ODSWP_value_label_wrap">@length: <span class="ODSWP_num-label">{{block.text.length}}</span></p>
+    <textarea ng-model="block.text">{{block.text}}</textarea>
+</div>
+<p class="ODSWP_Error" ng-if="OCRDoc.error">{{OCRDoc.error}}</p>
+<ul class="ODSWP_modal_nav" ng-if="OCRDoc.res && OCRDoc.res.text_block.length">
+    <li><a href="" class="button" ng-click="OCRDoc.useIt('append')"><?php _e('Append', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></a></li>
+    <li><a href="" class="button" ng-click="OCRDoc.useIt('prepend')"><?php _e('Prepend', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></a></li>
+    <li><a href="" class="button" ng-click="OCRDoc.useIt('replace')"><?php _e('Replace', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></a></li>
+</ul>
+</script>

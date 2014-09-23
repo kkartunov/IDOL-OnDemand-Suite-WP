@@ -1,0 +1,17 @@
+<script type="text/ng-template" id="ok.sentiment.html">
+
+<h3>
+    <i class="fa fa-warning fa-2x" ng-if="Sntm.error"></i>
+    <span ng-if="Sntm.res"><?php _e('Done', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></span>
+    <span ng-if="Sntm.error"><?php _e('Error', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></span>
+</h3>
+<div ng-if="Sntm.res" style="text-align:center">
+<p>
+    <i class="fa fa-smile-o fa-3x" ng-if="Sntm.res.aggregate.sentiment=='positive'"> &#8226; <span>{{Sntm.res.aggregate.score | number:3}}</span></i>
+    <i class="fa fa-frown-o fa-3x" ng-if="Sntm.res.aggregate.sentiment=='negative'"> &#8226; <span>{{Sntm.res.aggregate.score | number:3}}</span></i>
+    <i class="fa fa-meh-o fa-3x" ng-if="Sntm.res.aggregate.sentiment=='neutral'"> &#8226; <span>{{Sntm.res.aggregate.score | number:3}}</span></i>
+</p>
+<p class="ODSWP_value_label_wrap">Based on: <span class="ODSWP_num-label">{{Sntm.res.positive.length+Sntm.res.negative.length}}</span> entities.</p>
+</div>
+<p class="ODSWP_Error" ng-if="Sntm.error">{{Sntm.error}}</p>
+</script>

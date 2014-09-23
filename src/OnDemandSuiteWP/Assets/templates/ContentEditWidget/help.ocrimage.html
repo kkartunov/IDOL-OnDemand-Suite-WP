@@ -1,0 +1,18 @@
+<script type="text/ng-template" id="help.ocrimage.html">
+<h3><i class="fa fa-question-circle fa-2x"></i> OCR Image</h3>
+<p>The OCR Document API extracts text from an image that you provide.</p>
+<p>This API accepts a <strong>single input source</strong> that can be supplied using one of the following parameters:</p>
+<ul class="fa-ul">
+    <li><i class="fa fa-li fa-caret-right"></i><strong>file</strong>. A file containing the image to process. Multi part POST only.</li>
+    <li><i class="fa fa-li fa-caret-right"></i><strong>reference</strong>. An IDOL OnDemand reference obtained from either the Expand Container or Store Object API. The corresponding image is passed to the API.</li>
+    <li><i class="fa fa-li fa-caret-right"></i><strong>url</strong>. A publicly accessible HTTP URL from which the image can be retrieved.</li>
+</ul>
+<p>You must provide an image to process. The optional <strong>mode</strong> parameter specifies the type of image that you provide, which can improve the accuracy of the results:</p>
+<ul class="fa-ul">
+    <li><i class="fa fa-li fa-caret-right"></i><strong>document_photo</strong>. Recognize text in a document that has been digitized with variable light, such as through a mobile phone camera.</li>
+    <li><i class="fa fa-li fa-caret-right"></i><strong>document_scan</strong>. Recognize text in a document that has been digitized with constant lighting, such as through a flatbed scanner.</li>
+    <li><i class="fa fa-li fa-caret-right"></i><strong>scene_photo</strong>. Recognize text in a scene, for example signs and billboards in a landscape.</li>
+    <li><i class="fa fa-li fa-caret-right"></i><strong>subtitle</strong>. Recognize text superimposed on an image, such as TV subtitles.</li>
+</ul>
+<p>For a list of file formats that you can use for images, see <a href="https://www.idolondemand.com/developer/docs/ImageFormats.html" target="_blank">Image Formats</a>.</p>
+</script>

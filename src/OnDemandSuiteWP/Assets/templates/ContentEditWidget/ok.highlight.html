@@ -1,0 +1,19 @@
+<script type="text/ng-template" id="ok.highlight.html">
+<h3>
+    <i class="fa fa-code fa-2x"></i>
+    <span ng-if="HghLig.res"><?php _e('Done', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></span>
+    <span ng-if="HghLig.error"><?php _e('Error', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></span>
+</h3>
+<h4 ng-if="HghLig.res">
+    <?php _e('Result', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>:
+</h4>
+<div contenteditable="true">
+{{HghLig.res}}
+</div>
+<p class="ODSWP_Error" ng-if="HghLig.error">{{HghLig.error}}</p>
+<ul class="ODSWP_modal_nav" ng-if="HghLig.res">
+    <li><a href="" class="button" ng-click="HghLig.useIt('append')"><?php _e('Append', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></a></li>
+    <li><a href="" class="button" ng-click="HghLig.useIt('prepend')"><?php _e('Prepend', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></a></li>
+    <li><a href="" class="button" ng-click="HghLig.useIt('replace')"><?php _e('Replace', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?></a></li>
+</ul>
+</script>

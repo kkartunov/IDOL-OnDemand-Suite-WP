@@ -1,0 +1,27 @@
+<?php
+/*
+ * This file is part of the HP IDOL OnDemand Suite for WP.
+ *
+ * (c) 2014 Kiril Kartunov
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+
+?>
+<div class='wrap'>
+    <h2><?php _e('Your HP IDOL OnDemand API keys', 'HP_IDOL_OnDemand_APIkey_Manager_Textdomain')?></h2>
+    <h4>
+        <?php _e('Need help obtaining an API key?', 'HP_IDOL_OnDemand_APIkey_Manager_Textdomain')?>
+        <a href="https://www.idolondemand.com/developer/docs/APIKeys.html" target="_blank">
+            <?php _e('Look here...', 'HP_IDOL_OnDemand_APIkey_Manager_Textdomain')?>
+        </a>
+    </h4>
+    <form action="options.php" method="post">
+        <?php settings_fields( self::OPTIONS_STORAGE_KEY ); do_settings_sections( self::OPTIONS_STORAGE_KEY ); ?>
+        <p class="submit">
+            <input name="submit" type="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes', 'HP_IDOL_OnDemand_APIkey_Manager_Textdomain'); ?>" />
+        </p>
+    </form>
+</div>

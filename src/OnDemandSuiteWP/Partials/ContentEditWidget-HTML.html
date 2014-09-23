@@ -1,0 +1,20 @@
+<?php
+/*
+ * This file is part of the HP IDOL OnDemand Suite for WP.
+ *
+ * (c) 2014 Kiril Kartunov
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+
+?>
+<div id="ODSWP_Root" ng-controller="ODSWP_Root" ng-cloak>
+    <modal-dialog show="modal.show" prevent-close="modal.preventClose" reset-on-close="modal.resetOnClose">
+        <div ng-include="modal.currentTpl"></div>
+    </modal-dialog>
+    <?php include __DIR__ . '/../Assets/templates/ContentEditWidget/section.ocrdoc.html'; ?>
+    <?php include __DIR__ . '/../Assets/templates/ContentEditWidget/section.sentiment.html'; ?>
+    <?php include __DIR__ . '/../Assets/templates/ContentEditWidget/section.highlight.html'; ?>
+</div>

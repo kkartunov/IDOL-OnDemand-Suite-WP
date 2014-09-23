@@ -1,0 +1,61 @@
+<script type="text/ng-template" id="uindex.create.html">
+<h3><i class="fa fa-file-text-o fa-2x"></i> <?php _e('Create text index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></h3>
+<table class="ODSWP_table" ng-controller="uindex_create_form">
+    <thead ng-hide="created||errored">
+        <tr>
+            <th><?php _e('Name', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></th>
+            <th><?php _e('Type', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></th>
+            <th><?php _e('Value', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></th>
+        </tr>
+    </thead>
+    <tbody ng-hide="created||errored">
+        <tr>
+            <td class="ODSWP_required"><?php _e('Index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></td>
+            <td><?php _e('string', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></td>
+            <td>
+                <input type="text" id="new_uindex_name"
+                       ng-model="index"
+                       ng-class="{'ODSWP_required_error':!index}"
+                       ng-change="checkForMatch()"
+                       ng-disabled="working"/>
+                <label class="ODSWP_Error" for="new_uindex_name" ng-show="uindex_match" style="display:block">
+                <?php _e('Ups, already exists!', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></label>
+            </td>
+        </tr>
+        <tr>
+            <td class="ODSWP_required"><?php _e('Flavor', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></td>
+            <td><?php _e('string', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></td>
+            <td>
+                <select ng-model="flavor" ng-class="{'ODSWP_required_error':!flavor}" ng-disabled="working">
+                    <option value="explorer">Explorer</option>
+                    <option value="standart">Standart</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><?php _e('Description', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></td>
+            <td><?php _e('string', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></td>
+            <td>
+                <input type="text" ng-model="desc" ng-disabled="working"/>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <a href="#" class="button button-primary"
+                   ng-click="uindex_create()"
+                   ng-show="index && flavor && !(created || errored || uindex_match)"
+                   ng-class="{'disabled':working}">Create <i class="fa fa-spinner fa-spin" ng-if="working"></i></a>
+                <p class="ODSWP_Notice" ng-show="index && flavor && !(created || errored || uindex_match)">
+                    <i class="fa fa-info"></i> <?php _e('This can takes awhile...', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?></p>
+                <p
+                   ng-show="created || errored"
+                   ng-class="{'ODSWP_Error':errored}">
+                    <i class="fa fa-2x" ng-class="{'fa-warning':errored,'fa-thumbs-o-up':created}"></i> {{created || errored}}
+                </p>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</script>

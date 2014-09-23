@@ -1,0 +1,138 @@
+@info_clr: rgba(172, 58, 222, 0.78);
+@error_clr: rgba(239, 32, 32, 0.74);
+@even_row_clr: rgba(0, 0, 0, 0.03);
+
+
+#ODSWP_DashboardWidget{
+    .ODSWP_{
+        &Error{
+            color: @error_clr;
+        }
+        &Notice{
+            color: @info_clr;
+        }
+        &desc{
+            font-style: italic;
+            font-size: 0.85em;
+            opacity: .6;
+            margin: 0;
+        }
+        &collapsible{
+            max-height: 200px;
+            overflow: auto;
+            overflow-x: hidden;
+            &_title{
+                cursor: pointer;
+                margin: 0;
+                margin-bottom: .5em;
+                border-bottom: 1px solid darken(#fff, 6%);;
+            }
+        }
+        &search{
+            text-align: center;
+            input[type="search"]{
+                margin-top: .5em;
+                width: 90%;
+            }
+        }
+        &button{
+            cursor: pointer;
+        }
+        &required{
+            font-weight: bold;
+            &_error{
+                border: 1px solid @error_clr;
+            }
+        }
+        &sub-menu-wrap{
+            display: inline-block;
+        }
+        &sub-info-wrap{
+            span{
+                margin-right: .5em;
+                color: @info_clr;
+                font-size: 0.85em;
+                i{
+                    margin-right: .2em;
+                }
+            }
+        }
+        &num-label{
+            font-size: 2em;
+            font-weight: bold;
+        }
+        &value_label_wrap{
+            margin: 0 1em;
+            display: inline-block;
+            text-align: center;
+        }
+        &table{
+            margin: 1.5em;
+            thead{
+                tr{
+                    background-color: fadein(@even_row_clr, 2%);
+                }
+                th{
+                    text-align: left;
+                    padding: .5em;
+                }
+            }
+            tbody{
+                tr:nth-child(even){
+                    background-color: @even_row_clr;
+                }
+            }
+        }
+    }
+    .fa-ul li{
+        padding: .3em;
+        &:nth-child(even){
+            background-color: @even_row_clr;
+        }
+    }
+
+    // Scrollbars.
+    ::-webkit-scrollbar{ width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track{ background: #fff; }
+    ::-webkit-scrollbar-thumb{ background: #ccc; }
+
+    //Animations.
+    .animate-shiny{
+        &.ng-hide-add, &.ng-hide-remove{
+            transition: all 0.3s ease-in-out;
+            display: block !important;
+            opacity: 1;
+        }
+        &.ng-hide{
+            opacity: 0;
+        }
+    }
+    .animate-repeat-filter{
+        &.ng-enter, &.ng-leave, &.ng-move{
+            transition: 0.5s linear all;
+            position:relative;
+        }
+        &.ng-enter {
+          left:-10px;
+          opacity:0;
+        }
+        &.ng-enter.ng-enter-active {
+          left:0;
+          opacity:1;
+        }
+        &.ng-leave {
+          left:0;
+          opacity:1;
+        }
+        &.ng-leave.ng-leave-active {
+          left:-10px;
+          opacity:0;
+        }
+        &.ng-move {
+          opacity:0.5;
+        }
+        &.ng-move.ng-move-active {
+          opacity:1;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<div id="ODSWP_Highlight">
+    <h4 class="ODSWP_collapsible_title"
+        ng-click="HghLig.show=!HghLig.show">
+            <i class="fa fa-code"></i>
+            <?php _e('Highlight text', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+            <i class="fa" ng-class="{'fa-caret-down': !HghLig.show, 'fa-caret-up': HghLig.show}"></i>
+        </h4>
+    <div class="ODSWP_collapsible animate-shiny"
+         ng-show="HghLig.show">
+        <p class="howto">
+            <?php _e('Just provide input data source and get text highlighted via HTML tags.', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+            <a href="" ng-click="modal_pop('help.highlight.html')"><i class="fa fa-question-circle"></i></a>
+        </p>
+        <tabs publish-to="HghLig" name="src">
+            <pane title="<?php _e('Text', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <textarea ng-model="HghLig.Text" placeholder="<?php _e('Your text', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>"></textarea>
+                <label for="HghLig.Editor">
+                    <input type="checkbox" id="HghLig.Editor" ng-model="HghLig.fromEditor"/>
+                    <?php _e('Highlight the editor content', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+                </label>
+            </pane>
+            <pane title="<?php _e('Url', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="text" ng-model="HghLig.Url" placeholder="<?php _e('Accessible HTTP URL', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+            </pane>
+<!-- Comming soon
+            <pane title="<?php _e('File', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="file" ng-model="OCRDoc.File" ng-file-select="OCRDoc.onFileSelect($files)">
+            </pane>
+-->
+            <pane title="<?php _e('Reference', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+                <input type="text" ng-model="HghLig.Reference"
+                       placeholder="<?php _e('An IDOL OnDemand reference', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>">
+            </pane>
+        </tabs>
+        <p>
+            <label for="HghLig.highlight_expression">
+                <?php _e('The terms to highlight', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+                <input type="text" id="HghLig.highlight_expression" ng-model="HghLig.highlight_expression"/>
+            </label>
+            <label for="HghLig.start_tag">
+                <?php _e('The opening HTML tag to use', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+                <input type="text" id="HghLig.start_tag" ng-model="HghLig.start_tag"/>
+            </label>
+        </p>
+    <p><a href="" class="button button-primary"
+          ng-click='HghLigGo()'
+          ng-class="{'disabled':HghLig.ctask}">
+        <?php _e('Go', 'HP_IDOL_OnDemand_ContentEditWidget_Textdomain')?>
+        <i class="fa fa-spinner fa-spin" ng-if='HghLig.ctask'></i>
+        </a>
+    </p>
+    </div>
+    <?php include 'help.highlight.html'; ?>
+    <?php include 'ok.highlight.html'; ?>
+</div>

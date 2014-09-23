@@ -1,0 +1,110 @@
+<?php
+/*
+ * This file is part of the HP IDOL OnDemand Suite for WP.
+ *
+ * (c) 2014 Kiril Kartunov
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+
+?>
+<div id="ODSWP_Root" ng-controller="ODSWP_Root" ng-cloak>
+    <modal-dialog show="modal.show" prevent-close="modal.preventClose" reset-on-close="modal.resetOnClose">
+        <div ng-include="modal.currentTpl"></div>
+    </modal-dialog>
+    <div id="ODSWP_user_indexes">
+        <h4 ng-click="uindexes_visable=!uindexes_visable" class="ODSWP_collapsible_title">
+            <i class="fa fa-user"></i>
+            <?php _e('User-created Indexes', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>
+            ({{remote_indexes.index.length}})
+            <i class="fa" ng-class="{'fa-caret-down': !uindexes_visable, 'fa-caret-up': uindexes_visable}"></i>
+            <i class="fa fa-plus fa-border" title="<?php _e('Create new text index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+               ng-click="modal_pop('uindex.create.html')"></i>
+            <i class="fa fa-spinner fa-spin" title="{{ctask}}" ng-if='ctask'></i>
+        </h4>
+        <div class="ODSWP_collapsible animate-shiny"
+             ng-show="uindexes_visable"
+             ng-init="uindexes_visable=false">
+            <p ng-hide="remote_indexes.index.length" class="ODSWP_Notice">
+                <?php _e('No indexes found. Create new with the button above...', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>.</p>
+            <div class="ODSWP_search" ng-hide="!remote_indexes.index.length">
+                <input type="search" placeholder="<?php _e('Filter list...', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+                   ng-model="uindex_query"/>
+            </div>
+            <ul class="fa-ul">
+                <li ng-repeat="uindex in remote_indexes.index | filter:{index: uindex_query}"
+                    ng-mouseover="hovered=true"
+                    ng-mouseleave="hovered=false"
+                    class="animate-repeat-filter">
+                    <i class="fa-li fa fa-file-text-o"></i>
+                    {{uindex.index}}
+                    <div class="ODSWP_sub-menu-wrap animate-shiny">
+                        <i class="fa fa-stethoscope fa-border ODSWP_button"
+                           title="<?php _e('Get status', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+                           ng-show="hovered"
+                           ng-click="uindex_task('status', {uindex: uindex.index})"></i>
+                        <i class="fa fa-plus fa-border ODSWP_button"
+                           title="<?php _e('Add to text index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+                           ng-show="hovered"
+                           ng-click="uindex_task('add_doc', {uindex: uindex.index})"></i>
+                        <i class="fa fa-minus fa-border ODSWP_button"
+                           title="<?php _e('Delete from text index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+                           ng-show="hovered"
+                           ng-click="uindex_task('drop_doc', {uindex: uindex.index})"></i>
+                        <i class="fa fa-trash-o fa-border ODSWP_button"
+                           title="<?php _e('Delete index', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+                           ng-show="hovered"
+                           ng-click="uindex_task('uindex_drop', {uindex: uindex.index})"></i>
+                    </div>
+                    <p class="ODSWP_desc">{{uindex.description}}</p>
+                    <div ng-show="hovered" class="ODSWP_sub-info-wrap animate-shiny">
+                        <span title="<?php _e('Type', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>">
+                            <i class="fa fa-tag"></i>{{uindex.type}}</span>
+                        <span title="<?php _e('Flavor', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>">
+                            <i class="fa fa-cube"></i>{{uindex.flavor}}</span>
+                        <span title="<?php _e('Date created', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>">
+                            <i class="fa fa-calendar"></i>{{toDate(uindex.date_created)|date:'medium'}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="ODSWP_public_indexes">
+        <h4 ng-click="pindexes_visable=!pindexes_visable" class="ODSWP_collapsible_title">
+            <i class="fa fa-database"></i>
+            <?php _e('Public Indexes', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>
+            ({{remote_indexes.public_index.length}})
+            <i class="fa" ng-class="{'fa-caret-down': !pindexes_visable, 'fa-caret-up': pindexes_visable}"></i>
+        </h4>
+        <div class="ODSWP_collapsible animate-shiny" ng-show="pindexes_visable" ng-init="pindexes_visable=false">
+            <p class="ODSWP_Notice" ng-hide="remote_indexes.public_index.length">
+                <?php _e('No indexes found', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>.</p>
+            <div class="ODSWP_search" ng-hide="!remote_indexes.public_index.length">
+                <input type="search" placeholder="<?php _e('Filter list...', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>"
+                   ng-model="pindex_query"/>
+            </div>
+            <ul class="fa-ul">
+                <li ng-repeat="pindex in remote_indexes.public_index | filter:{index: pindex_query}"
+                    ng-mouseover="hovered=true"
+                    ng-mouseleave="hovered=false"
+                    class="animate-repeat-filter">
+                    <i class="fa-li fa fa-file-text-o"></i>
+                    {{pindex.index}}
+                    <i class="fa fa-info-circle fa-lg"
+                       title="<?php _e('Type', 'HP_IDOL_OnDemand_Dashboard_Widget_Textdomain')?>: {{pindex.type}}"
+                       ng-show="hovered"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Templates used-->
+<?php
+    include __DIR__ . '/../Assets/templates/DashboardWidget/uindex.create.html';
+    include __DIR__ . '/../Assets/templates/DashboardWidget/uindex.status.html';
+    include __DIR__ . '/../Assets/templates/DashboardWidget/uindex.delete.html';
+    include __DIR__ . '/../Assets/templates/DashboardWidget/error.html';
+?>

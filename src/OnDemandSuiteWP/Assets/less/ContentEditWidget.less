@@ -1,0 +1,130 @@
+@error_clr: rgba(239, 32, 32, 0.74);
+@tab_bg: #fff;
+@tab_border: darken(@tab_bg, 6%);
+
+#ContentEditWidget_GUI{
+    .ODSWP_{
+        &Error{
+            color: @error_clr;
+        }
+        &tabbable{
+            margin-top: 1em;
+            .tabs{
+                margin: 0;
+                position: relative;
+                z-index: 1;
+                margin-bottom: -1px;
+                li{
+                    display: inline-block;
+                    padding: .5em;
+                    margin: 0;
+                    a{
+                        text-decoration: none;
+                    }
+                }
+                .tab_active{
+                    background-color: @tab_bg;
+                    border:1px solid @tab_border;
+                    border-bottom: none;
+                    a{
+                        font-weight: bold;
+                    }
+                }
+            }
+            .tab-content{
+                background-color: @tab_bg;
+                border:1px solid @tab_border;
+                padding: .5em;
+                position: relative;
+                z-index: 0;
+                .tab-pane{
+                    display: none;
+                    &.pane_active{
+                        display: block;
+                    }
+                }
+            }
+        }
+        &collapsible{
+            input, select, textarea{
+                width: 100%;
+            }
+            input[type="checkbox"]{
+                width: auto;
+            }
+            &_title{
+                cursor: pointer;
+                margin: 0;
+                margin-bottom: .5em;
+                border-bottom: 1px solid @tab_border;
+            }
+        }
+        &modal{
+            &_nav{
+                li{
+                    display: inline-block;
+                }
+            }
+        }
+        &num-label{
+            font-size: 2em;
+            font-weight: bold;
+        }
+        &value_label_wrap{
+            margin: 0 1em;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+    // Scrollbars.
+    ::-webkit-scrollbar{ width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track{ background: #fff; }
+    ::-webkit-scrollbar-thumb{ background: #ccc; }
+
+    .OCRImageRes{
+        textarea{
+            width: 100%;
+        }
+    }
+
+    //Animations.
+    .animate-shiny{
+        &.ng-hide-add, &.ng-hide-remove{
+            transition: all 0.3s ease-in-out;
+            display: block !important;
+            opacity: 1;
+        }
+        &.ng-hide{
+            opacity: 0;
+        }
+    }
+    .animate-repeat-filter{
+        &.ng-enter, &.ng-leave, &.ng-move{
+            transition: 0.5s linear all;
+            position:relative;
+        }
+        &.ng-enter {
+          left:-10px;
+          opacity:0;
+        }
+        &.ng-enter.ng-enter-active {
+          left:0;
+          opacity:1;
+        }
+        &.ng-leave {
+          left:0;
+          opacity:1;
+        }
+        &.ng-leave.ng-leave-active {
+          left:-10px;
+          opacity:0;
+        }
+        &.ng-move {
+          opacity:0.5;
+        }
+        &.ng-move.ng-move-active {
+          opacity:1;
+        }
+    }
+}

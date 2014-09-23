@@ -1,0 +1,16 @@
+{
+    "name": "HP_IDOL_OnDemand_Suite_For_WP",
+    "version": "0.1.0",
+    "description": "HP IDOL OnDemand Suite For WP is a plugin for working with the IDOL OnDemand API",
+    "author": "Kiril Kartunov",
+    "license": "GPLv2",
+    "devDependencies": {
+        "gulp": "~3.8.7",
+        "gulp-less": "~1.3.5",
+        "gulp-uglify": "~0.3.1",
+        "gulp-minify-css": "~0.3.7",
+        "gulp-autoprefixer": "0.0.8",
+        "gulp-docco": "0.0.4",
+        "gulp-zip": "~2.0.2"
+    }
+}
