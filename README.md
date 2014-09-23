@@ -1,6 +1,6 @@
 # HP IDOL OnDemand Suite For WP
 
-[![Build Status](https://travis-ci.org/mtserve/IDOL-OnDemand-Suite-WP.svg)](https://travis-ci.org/mtserve/IDOL-OnDemand-Suite-WP)
+[![Build Status](https://travis-ci.org/mtserve/IDOL-OnDemand-Suite-WP.svg)](https://travis-ci.org/mtserve/IDOL-OnDemand-Suite-WP) [![Latest Stable Version](https://poser.pugx.org/mtserve/hp-idol-on-demand-suite-for-wp/v/stable.svg)](https://packagist.org/packages/mtserve/hp-idol-on-demand-suite-for-wp) [![License](https://poser.pugx.org/mtserve/hp-idol-on-demand-suite-for-wp/license.svg)](https://packagist.org/packages/mtserve/hp-idol-on-demand-suite-for-wp) [![Total Downloads](https://poser.pugx.org/mtserve/hp-idol-on-demand-suite-for-wp/downloads.svg)](https://packagist.org/packages/mtserve/hp-idol-on-demand-suite-for-wp)
 
 **WP plugin** bundling a collection of tools which ease the workflow when working with the **HP IDOL OnDemand API**.
 

@@ -1,6 +1,8 @@
 /docs/
 /node_modules/
 /vendor/
+/src/OnDemandSuiteWP/Assets/less/dist/
+/src/OnDemandSuiteWP/Assets/js/dist/
 
 .brackets.json
 composer.lock

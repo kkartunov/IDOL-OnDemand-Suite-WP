@@ -2,6 +2,7 @@
     "name": "HP_IDOL_OnDemand_Suite_For_WP",
     "version": "0.1.0",
     "description": "HP IDOL OnDemand Suite For WP is a plugin for working with the IDOL OnDemand API",
+    "homepage": "https://github.com/mtserve/IDOL-OnDemand-Suite-WP",
     "author": "Kiril Kartunov",
     "license": "GPLv2",
     "devDependencies": {

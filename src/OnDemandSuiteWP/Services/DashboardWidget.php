@@ -226,7 +226,7 @@ final class DashboardWidget extends \OnDemandSuiteWP\Utils\HTTPClient
             // Load ngModal
             wp_register_script(
                 'ngModal',
-                plugin_dir_url(OnDemandSuiteWP_BASE_FILE).'vendor/ngModal/dist/ng-modal.js',
+                plugin_dir_url(OnDemandSuiteWP_BASE_FILE).'vendor/ngModal/dist/ng-modal.min.js',
                 array('angular')
             );
             wp_enqueue_script('ngModal');

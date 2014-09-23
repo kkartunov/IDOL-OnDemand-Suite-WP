@@ -1,15 +1,19 @@
 {
-    "name": "kiril/hp_idol_on_demand_suite_for_wp",
+    "name": "mtserve/hp-idol-on-demand-suite-for-wp",
     "description": "HP IDOL OnDemand Suite For WP is a plugin for working with the IDOL OnDemand API",
     "version": "0.1.0",
+    "type": "wordpress-plugin",
     "license": "GPLv2",
+    "homepage": "https://github.com/mtserve/IDOL-OnDemand-Suite-WP",
     "authors": [
         {
             "name": "Kiril Kartunov",
             "email": "kiri4a@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.3.0"
+    },
     "require-dev": {
         "sami/sami": "2.0.*@dev",
         "phpspec/phpspec": "~2.0"
@@ -18,5 +22,9 @@
         "psr-0": {
             "OnDemandSuiteWP": ["src/"]
         }
+    },
+    "keywords": ["wordpress", "API", "HP IDOL OnDemand"],
+    "support": {
+        "issues": "https://github.com/mtserve/IDOL-OnDemand-Suite-WP/issues"
     }
 }
