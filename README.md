@@ -21,13 +21,13 @@ Provides following sub modules:
 ## Installation
 **Way 1(better):**
 
-* In WP admin area go to **Plugins -> Add New -> Upload** and upload the plugin's [.zip file](dist/HP_IDOL_OnDemand_Suite_For_WP.zip)
+* In WP admin area go to **Plugins -> Add New -> Upload** and upload the plugin's [.zip file](https://github.com/mtserve/IDOL-OnDemand-Suite-WP/raw/master/dist/HP_IDOL_OnDemand_Suite_For_WP.zip)
 
 *Done!*
 
 **Way 2:**
 
-1. Upload plugin's [.zip file](dist/HP_IDOL_OnDemand_Suite_For_WP.zip) to the "/wp-content/plugins/" directory.
+1. Upload plugin's [.zip file](https://github.com/mtserve/IDOL-OnDemand-Suite-WP/raw/master/dist/HP_IDOL_OnDemand_Suite_For_WP.zip) to the "/wp-content/plugins/" directory.
 2. Extract it there.
 3. Activate the plugin through the "Plugins" menu in WordPress.
 
