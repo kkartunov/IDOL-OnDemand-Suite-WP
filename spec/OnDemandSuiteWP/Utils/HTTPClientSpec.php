@@ -17,10 +17,10 @@ class HTTPClientSpec extends ObjectBehavior
     }
 
     function it_should_be_able_to_build_IDOL_API_URLs(){
-        $this -> makeURL([
+        $this -> makeURL(array(
             'platform' => 2,
             'ident' => 'test'
-        ]) -> shouldEqual('https://api.idolondemand.com/2/api/sync/test/v1?apikey=myAPIkey');
+        )) -> shouldEqual('https://api.idolondemand.com/2/api/sync/test/v1?apikey=myAPIkey');
     }
 
     function it_should_append_the_apikey_to_the_URL_as_parameter()
